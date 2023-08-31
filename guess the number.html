@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<style>
+		body{
+			margin-top:200px;
+			margin-left:500px;
+			text.align:center;
+			background-image:url("https://p7.hiclipart.com/preview/19/677/223/guess-the-number-game-android-bengali-android.jpg");
+		}
+		h2{
+			color: blue;
+			font-size: 50px;
+		}
+		h3{
+			color:#ff0066;
+			font-size: 35px;
+		}
+		input{
+			border-radius:50px ;
+			font-size: 25px;
+		}
+		p{
+			color: black;
+			font-size: 25px;
+		}
+		button{
+			color:red;
+			height: 30px;
+			width:60px;
+		}
+	</style>
+</head>
+<body>
+	<h2> Guess The Number</h2>
+<h3> Guess the number between 1 to 100</h3>
+<input type="number" id="guessInput" max="100"><br>
+<br>
+<button id="guessbtn"> Sumbit</button>
+<p id="msg"></p>
+</body>
+<script>
+	var randomNumber=Math.floor(Math.random()*100)+1;
+var attempts=0;
+document.getElementById("guessbtn").addEventListener('click', function(){
+	 var guess=parseInt(document.getElementById("guessInput").value);
+	 attempts++;
+	 if(guess===randomNumber){
+	 	displaymsg("Congratulations! You guessed the Number in " + attempts+'attempt')
+	 	 document.getElementById("guessbtn").disabled=true;
+	 }
+	 else if(guess<randomNumber){
+	 	displaymsg("Too low!try a higher number.")
+	 }
+else{
+	displaymsg("Too high!try a lower number.")
+}
+});
+function displaymsg(k){
+	 document.getElementById("msg").textContent=k;
+}
+
+</script>
+</body>
+</html>
